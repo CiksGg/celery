@@ -4,6 +4,6 @@ from django.core.mail import send_mail
 @shared_task
 def send_activation_code(email,activation_code):
     activation_link = f'http://localhost:8000/account/activate/{activation_code}'
-    message = f'Активируйте аккаунт перейдя по ссылке/n{activation_link}'
+    message = f'Активируйте аккаунт перейдя по ссылке\n{activation_link}'
     send_mail('Activate account', message, 'test@gmail.com', [email])
     return 'Отправлено'
